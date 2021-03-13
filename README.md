@@ -1,2 +1,2 @@
 # Leetcode Problems
-- storing all my solutions is a huge ask, hence Github :)
+- Storing all my solutions is a huge ask, hence Github :)
