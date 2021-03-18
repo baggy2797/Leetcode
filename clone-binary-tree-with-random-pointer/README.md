@@ -55,3 +55,10 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 	<li>Each node's value is between&nbsp;<code>[1, 10^6]</code>.</li>
 </ul>
 </div>
+
+
+
+### References : 
+
+- <a href="https://realpython.com/copying-python-objects/" target="_blank"><strong>Real Python</strong></a>
+- <a href="https://leetcode.com/problems/clone-binary-tree-with-random-pointer/solution/" target="_blank"><strong>Leetcode Solution -1 (Python3)</strong></a>
