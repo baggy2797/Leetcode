@@ -8,5 +8,4 @@ class Solution:
                     tr[i].append(1)
                 else:
                     tr[i].append(tr[i-1][j-1]+tr[i-1][j])
-            # tr.append(temp)
         return tr
