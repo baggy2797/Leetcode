@@ -1,3 +1,4 @@
+[Discussion Post (created on 30/2/2021 at 0:0)](https://leetcode.com/problems/fizz-buzz/discuss/1133605/Yet-Another-Python3-Solution-with-using-%22%22-operator)  
 [Discussion Post (created on 10/2/2021 at 19:43)](https://leetcode.com/problems/fizz-buzz/discuss/1103629/Python3-Solution-%3A-Faster-than-94.80-and-Less-memory-usage-than-90.13)  
 <h2>412. Fizz Buzz</h2><h3>Easy</h3><hr><div><p>Write a program that outputs the string representation of numbers from 1 to <i>n</i>.</p>
 
