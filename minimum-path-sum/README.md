@@ -1,3 +1,4 @@
+[Discussion Post (created on 31/2/2021 at 19:21)](https://leetcode.com/problems/minimum-path-sum/discuss/1136493/Python3-DP-INPLACE)  
 <h2>64. Minimum Path Sum</h2><h3>Medium</h3><hr><div><p>Given a <code>m x n</code> <code>grid</code> filled with non-negative numbers, find a path from top left to bottom right, which minimizes the sum of all numbers along its path.</p>
 
 <p><strong>Note:</strong> You can only move either down or right at any point in time.</p>
