@@ -1,3 +1,4 @@
+[Discussion Post (created on 31/2/2021 at 16:8)](https://leetcode.com/problems/merge-intervals/submissions/)  
 <h2>56. Merge Intervals</h2><h3>Medium</h3><hr><div><p>Given an array&nbsp;of <code>intervals</code>&nbsp;where <code>intervals[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>, merge all overlapping intervals, and return <em>an array of the non-overlapping intervals that cover all the intervals in the input</em>.</p>
 
 <p>&nbsp;</p>
