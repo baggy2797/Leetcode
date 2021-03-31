@@ -22,21 +22,16 @@ class Solution:
             level = next_level
             
         temp = sorted(temp)
-        print(temp)
         res = dummy = TreeNode(0)
         dummy.left = None
         
         for i in range(len(temp)):
-            
             if i==0:
                 new = TreeNode(temp[i])
-                
                 new.left = None
-                
                 dummy.right = new
                 dummy = dummy.right
             else:
-                
                 new = TreeNode(temp[i])
                 dummy.right = new
                 new.left = None
