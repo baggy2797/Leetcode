@@ -1,13 +1,18 @@
 class Solution:
     def isStrobogrammatic(self, num: str) -> bool:
-        sample = {'0': '0', '1': '1', '8': '8', '6': '9', '9': '6'}
-        
-        res = []
+        rotated = []
         
         for c in reversed(num):
-            if c not in sample:
+            if c in {'0','1','8'}:
+                rotated.append(c)
+            
+            elif c == '6':
+                rotated.append('9')
+            elif c == '9':
+                rotated.append('6')
+            else:
                 return False
-            res.append(sample[c])
+            
+        rotated = "".join(rotated)
         
-        rot_s = "".join(res)
-        return rot_s == num
+        return rotated == num
