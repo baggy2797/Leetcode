@@ -1,3 +1,4 @@
+[Discussion Post (created on 4/3/2021 at 0:10)](https://leetcode.com/problems/truncate-sentence/discuss/1141442/Python3-One-Line-Solution)  
 <h2>1816. Truncate Sentence</h2><h3>Easy</h3><hr><div><p>A <strong>sentence</strong> is a list of words that are separated by a single space with no leading or trailing spaces. Each of the words consists of <strong>only</strong> uppercase and lowercase English letters (no punctuation).</p>
 
 <ul>
