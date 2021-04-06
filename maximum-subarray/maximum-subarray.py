@@ -1,10 +1,13 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        maxi = nums[0]
-        max_sum = nums[0]
+        #Kadane's Algorithm
+        current_max = global_max = nums[0]
+        
         for i in range(1,len(nums)):
-                temp = maxi + nums[i]
-                maxi = max(temp,nums[i])
-                max_sum = max(max_sum,maxi)
+            current_max = max(nums[i]+current_max,nums[i])
             
-        return(max_sum)
+            if current_max > global_max:
+                global_max = current_max
+                
+        return(global_max)
+        
