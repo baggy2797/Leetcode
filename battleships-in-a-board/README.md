@@ -1,3 +1,4 @@
+[Discussion Post (created on 9/3/2021 at 22:1)](https://leetcode.com/problems/battleships-in-a-board/submissions/)  
 <h2>419. Battleships in a Board</h2><h3>Medium</h3><hr><div>Given an 2D board, count how many battleships are in it. The battleships are represented with <code>'X'</code>s, empty slots are represented with <code>'.'</code>s. You may assume the following rules:
 
 <ul>
