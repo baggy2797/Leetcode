@@ -1,3 +1,4 @@
+[Discussion Post (created on 12/3/2021 at 23:50)](https://leetcode.com/problems/search-a-2d-matrix/discuss/1155860/No-Binary-Search-%3A-95-Faster-and-85-less-memory-usage)  
 <h2>74. Search a 2D Matrix</h2><h3>Medium</h3><hr><div><p>Write an efficient algorithm that searches for a value in an <code>m x n</code> matrix. This matrix has the following properties:</p>
 
 <ul>
