@@ -1,3 +1,4 @@
+[Discussion Post (created on 13/3/2021 at 21:36)](https://leetcode.com/problems/palindromic-substrings/submissions/)  
 <h2>647. Palindromic Substrings</h2><h3>Medium</h3><hr><div><p>Given a string, your task is to count how many palindromic substrings in this string.</p>
 
 <p>The substrings with different start indexes or end indexes are counted as different substrings even they consist of same characters.</p>
