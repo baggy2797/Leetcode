@@ -1,3 +1,4 @@
+[Discussion Post (created on 17/3/2021 at 2:32)](https://leetcode.com/problems/sum-of-nodes-with-even-valued-grandparent/discuss/1162423/93.91-Faster-Runtime.-Simple-Python-Solution.)  
 <h2>1315. Sum of Nodes with Even-Valued Grandparent</h2><h3>Medium</h3><hr><div><p>Given a binary tree, return the sum of values of nodes with even-valued grandparent.&nbsp; (A <em>grandparent</em> of a node is the parent of its parent, if it exists.)</p>
 
 <p>If there are no nodes with an even-valued grandparent, return&nbsp;<code>0</code>.</p>
