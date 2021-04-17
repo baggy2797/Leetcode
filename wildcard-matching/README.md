@@ -1,3 +1,4 @@
+[Discussion Post (created on 17/3/2021 at 19:45)](https://leetcode.com/problems/wildcard-matching/submissions/)  
 <h2>44. Wildcard Matching</h2><h3>Hard</h3><hr><div><p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement wildcard pattern matching with support for <code>'?'</code> and <code>'*'</code> where:</p>
 
 <ul>
