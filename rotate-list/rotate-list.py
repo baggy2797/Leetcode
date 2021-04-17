@@ -9,13 +9,15 @@ class Solution:
             return head
         if not head.next:
             return head
-        l1=head
-        lengths = 0
-        while l1:
-            l1=l1.next
-            lengths+=1
+        
+        head1 = head
+        length = 0
+        while head1:
+            length+=1
+            head1 = head1.next
+        
         result = head
-        for i in range(k%lengths):
+        for i in range(k%length):
             result = self.rotateOnce(result)
         return result
         
@@ -25,15 +27,8 @@ class Solution:
         second = head
         while first.next:
             second = first
-            first = first.next 
+            first = first.next     
         second.next = None
         first.next = head
         start = first
-        return start
-        
-        
-            
-        
-        
-            
-            
+        return start   
