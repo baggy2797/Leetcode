@@ -1,3 +1,4 @@
+[Discussion Post (created on 19/3/2021 at 0:34)](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/solution/)  
 <h2>167. Two Sum II - Input array is sorted</h2><h3>Easy</h3><hr><div><p>Given an array of integers <code>numbers</code> that is already <strong><em>sorted in ascending order</em></strong>, find two numbers such that they add up to a specific <code>target</code> number.</p>
 
 <p>Return the indices of the two numbers (<strong>1-indexed</strong>) as an integer array <code>answer</code> of size <code>2</code>, where <code>1 &lt;= answer[0] &lt; answer[1] &lt;= numbers.length</code>.</p>
