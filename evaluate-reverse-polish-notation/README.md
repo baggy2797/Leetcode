@@ -1,3 +1,4 @@
+[Discussion Post (created on 26/3/2021 at 0:32)](https://leetcode.com/problems/evaluate-reverse-polish-notation/submissions/)  
 <h2>150. Evaluate Reverse Polish Notation</h2><h3>Medium</h3><hr><div><p>Evaluate the value of an arithmetic expression in <a href="http://en.wikipedia.org/wiki/Reverse_Polish_notation" target="_blank">Reverse Polish Notation</a>.</p>
 
 <p>Valid operators are <code>+</code>, <code>-</code>, <code>*</code>, and <code>/</code>. Each operand may be an integer or another expression.</p>
