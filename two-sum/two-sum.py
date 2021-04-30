@@ -1,6 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            a = target-nums[i]
-            if a in nums and i!=nums.index(a):
-                return([i,nums.index(a)])
+        helperDictionary = {}
+        length = len(nums)
+        
+        for i in range(length):
+            helperDictionary[nums[i]] = i
+            
+        for i in range(length):
+            search = target - nums[i]
+            if search in helperDictionary and helperDictionary[search]!=i:
+                return [i,helperDictionary[search]]
