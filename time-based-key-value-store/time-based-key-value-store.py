@@ -15,9 +15,11 @@ class TimeMap:
         new = self.timeMap.get(key,None)
         if new is None: 
             return ""
-        i = bisect.bisect(new,(timestamp,chr(127)))
-        
-        return new[i-1][1] if i else ""
+        i = len(new)-1
+        while i >= 0 and new[i][0] > timestamp:
+            i -= 1
+        return new[i][1] if i >= 0 else ""
+
         
 
 
