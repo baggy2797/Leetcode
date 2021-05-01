@@ -15,4 +15,3 @@ class Solution:
                         wordSet.remove(newWord)
                         queue.append((newWord,step+1))
         return 0
-        
