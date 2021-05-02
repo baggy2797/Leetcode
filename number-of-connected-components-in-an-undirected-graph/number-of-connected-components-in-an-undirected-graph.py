@@ -1,11 +1,11 @@
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        
         graph = collections.defaultdict(list)
-        for u, v in edges:
+        
+        for u,v in edges:
             graph[u].append(v)
             graph[v].append(u)
-        print(graph)
+        
         count = 0
         seen = set()
         
@@ -19,11 +19,7 @@ class Solution:
                         if nei not in seen:
                             q.append(nei)
                             seen.add(nei)
-		
-                count += 1
-		# Return the count.
+                
+                count = count+1
+        
         return count
-            
-        
-                    
-        
