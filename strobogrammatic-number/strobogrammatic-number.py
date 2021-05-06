@@ -5,7 +5,6 @@ class Solution:
         for c in reversed(num):
             if c in {'0','1','8'}:
                 rotated.append(c)
-            
             elif c == '6':
                 rotated.append('9')
             elif c == '9':
