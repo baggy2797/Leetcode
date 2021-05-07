@@ -8,23 +8,48 @@ class Node:
 """
 
 class Solution:
-    def __init__(self):
-        self.seen = {}
-        
     def copyRandomList(self, head: 'Node') -> 'Node':
-        if head == None:
-            return None
+        if not head:
+            return head
+        p = prev = head
+        ptr = head.next
+        temp = None
         
-        if head in self.seen:
-            return self.seen[head]
+        #create the copies
+        while prev:
+            new = Node(prev.val)
+            temp = prev.next
+            prev.next = new
+            new.next = temp
+            prev = prev.next.next
         
-        node = Node(head.val,None,None)
+        head = p
+        #make the random pointers assigned
+        while head:
+            if head.random is None:
+                head.next.random = None
+            else:
+                rand = head.random.next
+                head.next.random = rand            
+            head = head.next.next
         
-        self.seen[head] = node
+        head = p
+        #unweaving the list
+        l1,l2 = p , p.next
+        newhead = l2
         
-        node.next = self.copyRandomList(head.next)
-        node.random = self.copyRandomList(head.random)
+        while l1:
+            temp = l1.next.next
+            if l2.next:
+                temp2 = l2.next.next
+            else:
+                temp2 = None
+            l1.next = temp
+            l2.next = temp2
+            
+            
+            l2 = l2.next
+            l1 = l1.next
+        return newhead
         
-        return node
-        
-        
+            
