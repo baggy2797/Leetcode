@@ -11,33 +11,19 @@ class Solution:
         
         sumTilt = 0
         
-        @lru_cache(maxsize=100)
         def valueSum(root):
+            nonlocal sumTilt
+            
             if root is None:
                 return 0
-            res = root.val + valueSum(root.left)+valueSum(root.right)
-            return res
-        
-        level =[root]
-        
-        while level:
-            next_level = []
             
-            for node in level:
-                
-                if node.left:
-                    x = valueSum(node.left)
-                    next_level.append(node.left)
-                else:x = 0
-                    
-                if node.right:
-                    y = valueSum(node.right)
-                    next_level.append(node.right)
-                else:y = 0
-                
-                sumTilt += abs(x -y)
-            level = next_level
-        
+            leftSum = valueSum(root.left)
+            rightSum = valueSum(root.right)
+            tilt = abs(leftSum - rightSum)
+            sumTilt+= tilt
+            return root.val + leftSum + rightSum
+    
+        valueSum(root)
         return (sumTilt)
                 
             
