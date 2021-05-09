@@ -10,35 +10,24 @@ class Node:
 
 class Solution:
     def flatten(self, head: 'Node') -> 'Node':
-        if not head:
+        if head is None:
             return
-        
-        dummy = Node(0,None,head,None)
-        prev = dummy
-        temp = head
-        
-        stack = []
-        stack.append(head)
-        
-        while stack:
-            curr = stack.pop()
-            prev.next = curr
-            curr.prev = prev
+        ptr = head
+        while head:
+            # 'print(head.val)
+            if head.child:
+                tail = head.next
+                # head.next = None
+                temp = self.flatten(head.child)
+                # print(temp)
+                head.child = None
+                head.next = temp
+                temp.prev = head
+                while temp.next:
+                    temp = temp.next
+                if tail:
+                    temp.next = tail
+                    tail.prev = temp
             
-            if curr.next:
-                stack.append(curr.next)
-                
-            if curr.child:
-                stack.append(curr.child)
-                
-                curr.child = None
-            
-            prev = curr
-        
-        dummy.next.prev = None
-        return dummy.next
-            
-        
-        
-        
-        
+            head = head.next
+        return ptr
