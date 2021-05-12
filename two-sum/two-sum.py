@@ -1,12 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        helperDictionary = {}
+        self.cache = {}
         length = len(nums)
         
-        for i in range(length):
-            helperDictionary[nums[i]] = i
-            
+        for idx,num in enumerate(nums):
+            self.cache[num] = idx
+        
         for i in range(length):
             search = target - nums[i]
-            if search in helperDictionary and helperDictionary[search]!=i:
-                return [i,helperDictionary[search]]
+            if search in self.cache and self.cache[search]!=i:
+                return [i,self.cache[search]]
