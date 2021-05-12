@@ -31,32 +31,3 @@ class Solution:
             board[x][y] = word[0]
         
         return False
-        
-        
-        
-        
-        
-        
-#         def backtrack(board,x,y,idx):
-#             if x >= rows or y >= cols or x < 0 or y < 0 or idx >= len(word) or board[x][y]!=word[idx] or self.new == word:   
-#                 return 
-            
-#             else:
-                
-#                 self.new += word[idx]
-
-#                 board[x][y]= ""
-#                 print(self.new)
-#                 idx+=1
-                
-#                 backtrack(board,x,y+1,idx)
-            
-#                 backtrack(board,x+1,y,idx)
-                    
-#                 backtrack(board,x,y-1,idx)
-                    
-#                 backtrack(board,x-1,y,idx)
-        
-        
-            
-            
