@@ -1,10 +1,9 @@
 class TrieNode:
-    def __init__(self,v):
-        self.val = v
-        self.children ={}
-        self.endhere = False
-
-
+    def __init__(self,val):
+        self.val = val
+        self.children = {}
+        self.end = False
+        
 class Trie:
 
     def __init__(self):
@@ -13,7 +12,6 @@ class Trie:
         """
         self.root = TrieNode(None)
         
-
     def insert(self, word: str) -> None:
         """
         Inserts a word into the trie.
@@ -25,9 +23,8 @@ class Trie:
             parent = parent.children[char]
             
             if i == len(word)-1:
-                parent.endhere = True
-            
-
+                parent.end = True
+                
     def search(self, word: str) -> bool:
         """
         Returns if the word is in the trie.
@@ -37,7 +34,8 @@ class Trie:
             if char not in parent.children:
                 return False
             parent = parent.children[char]
-        return parent.endhere
+        return parent.end
+        
 
     def startsWith(self, prefix: str) -> bool:
         """
