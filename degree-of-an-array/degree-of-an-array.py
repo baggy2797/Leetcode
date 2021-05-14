@@ -1,40 +1,25 @@
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
-        freq = {}
+        freq,left,right = {},{},{}
         length = len(nums)
-        for num in nums:
-            freq[num] = freq.get(num,0)+1
         
-        maxKey,maxVal = 0,0
-        for key,value in freq.items():
-            if value > maxVal:
-                maxVal = value
-                maxkey = key
+        for i in range(length):
+            if nums[i] not in freq:
+                freq[nums[i]] = 1
+                left[nums[i]] = i
+                right[nums[i]] = i
+            else:
+                freq[nums[i]] += 1
+                # if i < left.get(nums[i]):left[nums[i]] = i 
+                right[nums[i]] = i 
         
-        check = []
-        for i in freq:
-            if freq[i] == maxVal:
-                check.append(i)
+        #find the minLength
+        minLength = float("inf")
+        degreeList = max(freq.values())
         
-        minlength = float("inf")
-        
-        for num in check:
-            left = 0
-            #check the leftmost appearance of num
-            for i in range(length):
-                if nums[i] == num:
-                    left = i
-                    break
-            right = 0
-            #check the rightmost appearance of num
-            for i in range(length-1,-1,-1):
-                if nums[i] == num:
-                    right = i
-                    break
-            #find the length
-            temp = right - left + 1
-            #compare the length with minlength
-            if temp < minlength:
-                minlength = temp
-                
-        return minlength
+        for num in freq:
+            if freq[num] == degreeList:
+                minLength = min(minLength,right[num] - left[num] + 1)
+            
+        if minLength == float("inf"):return 1
+        return minLength
