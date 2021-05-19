@@ -5,23 +5,26 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        res = []
-        for lis in lists:
-            temp = lis
-            while temp:
-                # print(temp.val)
-                res.append(temp.val)
-                temp = temp.next
-        # print(sorted(res))
-        length = len(res)
-        res = sorted(res)
-        i = 0
-        new2 = new1 = ListNode(0)
-        while length:
-            new1.next = ListNode(res[i])
-            new1 = new1.next
-            length = length-1
-            i = i+1
-        return (new2.next)
-            
         
+        def merger(l1,l2):
+            if l1 is None:
+                return l2
+            elif l2 is None:
+                return l1
+            elif l1.val<= l2.val:
+                l1.next = merger(l1.next,l2)
+                return l1
+            else:
+                l2.next = merger(l1,l2.next)
+                return l2
+        
+        while len(lists)>=2:
+            a1 = lists.pop(0)
+            a2 = lists.pop(0)
+            merged = merger(a1,a2)
+            lists.append(merged)
+        
+        if lists:return lists[0]
+        return None
+        
+    
