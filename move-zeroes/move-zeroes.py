@@ -8,6 +8,5 @@ class Solution:
         for i in range(length):
             if nums[i]!=0:
                 nums[i],nums[left] = nums[left],nums[i]
-                left+=1
-        # print(nums)
-            
+                # print(nums)
+                left+=1            
