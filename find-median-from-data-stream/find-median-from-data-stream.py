@@ -4,19 +4,19 @@ class MedianFinder:
         """
         initialize your data structure here.
         """
-        self.incomingData = []
-        self.numberOfIncomingElements = 0
+        self.minimal,self.maximal = [],[]
 
     def addNum(self, num: int) -> None:
-        bisect.insort(self.incomingData,num)
-        self.numberOfIncomingElements +=1
-        
-    def findMedian(self) -> float:
-
-        if self.numberOfIncomingElements%2==1:
-            return self.incomingData[(self.numberOfIncomingElements-1)//2]
+        if len(self.minimal) == len(self.maximal):
+            heappush(self.maximal,-heappushpop(self.minimal,-num))
         else:
-            return (self.incomingData[self.numberOfIncomingElements//2] + self.incomingData[(self.numberOfIncomingElements//2)-1])/2
+            heappush(self.minimal,-heappushpop(self.maximal,num))
+
+    def findMedian(self) -> float:
+        if len(self.minimal) == len(self.maximal):
+            return float(self.maximal[0] - self.minimal[0])/2.0
+        else:
+            return float(self.maximal[0])
 
 # Your MedianFinder object will be instantiated and called as such:
 # obj = MedianFinder()
