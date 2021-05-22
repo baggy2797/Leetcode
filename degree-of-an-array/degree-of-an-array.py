@@ -1,25 +1,18 @@
 class Solution:
     def findShortestSubArray(self, nums: List[int]) -> int:
-        freq,left,right = {},{},{}
-        length = len(nums)
+        left,right,count = {},{},{}
         
-        for i in range(length):
-            if nums[i] not in freq:
-                freq[nums[i]] = 1
-                left[nums[i]] = i
-                right[nums[i]] = i
-            else:
-                freq[nums[i]] += 1
-                # if i < left.get(nums[i]):left[nums[i]] = i 
-                right[nums[i]] = i 
+        for i ,x in enumerate(nums):
+            if x not in left:
+                left[x] = i
+            right[x] = i
+            count[x] = count.get(x,0)+1
         
-        #find the minLength
-        minLength = float("inf")
-        degreeList = max(freq.values())
+        ans = float("inf")
+        degree = max(count.values())
         
-        for num in freq:
-            if freq[num] == degreeList:
-                minLength = min(minLength,right[num] - left[num] + 1)
-            
-        if minLength == float("inf"):return 1
-        return minLength
+        for x in count:
+            if count[x] == degree:
+                ans = min(ans,right[x] - left[x] + 1)
+        
+        return ans   
