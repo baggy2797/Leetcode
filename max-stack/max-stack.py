@@ -5,35 +5,26 @@ class MaxStack:
         initialize your data structure here.
         """
         self.stack = []
-        self.max_stack = []
+        
 
     def push(self, x: int) -> None:
         self.stack.append(x)
-        if not self.max_stack or x >= self.max_stack[-1]:
-            self.max_stack.append(x)
 
     def pop(self) -> int:
-        if self.stack[-1] == self.max_stack[-1]:
-            self.max_stack.pop()
-        return self.stack.pop()
+        if self.stack:return self.stack.pop()
+    
 
     def top(self) -> int:
         return self.stack[-1]
 
     def peekMax(self) -> int:
-        if self.max_stack:
-            return self.max_stack[-1]
-        
+        return max(self.stack)
+
     def popMax(self) -> int:
-        temp = []
-        while self.stack[-1] != self.max_stack[-1]:
-            temp.append(self.stack.pop())
-        out = self.stack.pop()
-        self.max_stack.pop()
-        
-        while temp:
-            self.push(temp.pop())
-        return out
+        Maximum = self.peekMax()
+        for i in range(len(self.stack)-1,-1,-1):
+            if self.stack[i] == Maximum:
+                return self.stack.pop(i)
 
 # Your MaxStack object will be instantiated and called as such:
 # obj = MaxStack()
