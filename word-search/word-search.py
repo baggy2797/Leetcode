@@ -1,33 +1,28 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        rows = len(board)
-        cols = len(board[0])
-        self.new = ""
-        self.idx = 0
+        rows,cols = len(board),len(board[0])
+        visited = [[False for _ in range(cols)]for _ in range(rows)]
+        
+        def dfs(board,x,y,idx,word):
+            if len(word) == 0:
+                return True
+            if x < 0 or x >= rows or y < 0 or y >= cols or board[x][y]!= word[0]:
+                return False
+            
+            
+            board[x][y] = '#'
+            
+            ret = False
+            
+            ret = dfs(board,x+1,y,idx+1,word[1:]) or dfs(board,x,y+1,idx+1,word[1:]) or dfs(board,x-1,y,idx+1,word[1:]) or dfs(board,x,y-1,idx+1,word[1:])
+            
+            # if ret:break
+            board[x][y] = word[0]
+            return ret
+            
         for row in range(rows):
             for col in range(cols):
-                # if board[row][col] == word[0]:
-                    
-                if self.backtrack(board,row,col,word):
-                    # if self.new == word:
+                if dfs(board,row,col,0,word):
                     return True
-                    
-                    # self.new = ""
-                    
-        return False
-        
-    def backtrack(self,board,x,y,word):
-        if len(word) == 0:
-            return True
-        
-        if x >= len(board) or y >= len(board[0]) or x < 0 or y < 0:
-            return False
-        
-        if board[x][y] == word[0]:
-            board[x][y] = ""
-        
-            if self.backtrack(board,x+1,y,word[1:]) or self.backtrack(board,x,y+1,word[1:]) or self.backtrack(board,x-1,y,word[1:]) or self.backtrack(board,x,y-1,word[1:]):
-                return True
-            board[x][y] = word[0]
         
         return False
