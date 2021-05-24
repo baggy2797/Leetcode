@@ -1,8 +1,3 @@
-
-#time complexity :  O(N/K) where N is the number of all possible keys and K is the number of predefined buckets
-
-# space complexity : O(K+M) where K is the number of predefined buckets and M is the number of unique keys
-
 class Bucket:
     def __init__(self):
         self.bucket = []
@@ -22,12 +17,11 @@ class Bucket:
                 break
         if not found:
             self.bucket.append((key,value))
-    
+        
     def remove(self,key):
         for i,kv in enumerate(self.bucket):
             if key == kv[0]:
                 del self.bucket[i]
-    
 
 class MyHashMap:
 
@@ -35,32 +29,29 @@ class MyHashMap:
         """
         Initialize your data structure here.
         """
-        self.key_space = 2069
+        self.key_space = 2099
         self.hash_table = [Bucket() for i in range(self.key_space)]
-
+        
     def put(self, key: int, value: int) -> None:
         """
         value will always be non-negative.
         """
-        hash_key = key % self.key_space
+        hash_key = key% self.key_space
         self.hash_table[hash_key].update(key,value)
         
     def get(self, key: int) -> int:
         """
         Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
         """
-        hash_key = key%self.key_space
+        hash_key = key% self.key_space
         return self.hash_table[hash_key].get(key)
-        
 
     def remove(self, key: int) -> None:
         """
         Removes the mapping of the specified value key if this map contains a mapping for the key
         """
-        hash_key = key%self.key_space
+        hash_key = key% self.key_space
         self.hash_table[hash_key].remove(key)
-
-        
 
 
 # Your MyHashMap object will be instantiated and called as such:
