@@ -2,7 +2,7 @@ class TweetCounts:
 
     def __init__(self):
         self.tweetStorage = {}
-
+        
     def recordTweet(self, tweetName: str, time: int) -> None:
         if tweetName not in self.tweetStorage:
             self.tweetStorage[tweetName] = [time]
@@ -11,30 +11,32 @@ class TweetCounts:
 
     def getTweetCountsPerFrequency(self, freq: str, tweetName: str, startTime: int, endTime: int) -> List[int]:
         times = self.tweetStorage[tweetName]
-        temp = freq.lower()
-        size ,secs = 0,0
-        if temp == "minute":
+        
+        size = 0
+        secs = 0
+        
+        if freq == "minute":
             secs = 60
-            size = (endTime -startTime)/secs + 1
-            
-        elif temp == "hour":
+            size = (endTime-startTime)/ 60 + 1
+        elif freq == "hour":
             secs = 3600
-            size = (endTime -startTime)/secs + 1
-            
-        elif temp == "day":
-            secs =86400
-            size = (endTime -startTime)/secs + 1
-            
-        r = [0] * int(size)
+            size = (endTime-startTime)/ 3600 + 1
+        else:
+            secs = 86400
+            size = (endTime-startTime)/ 86400 + 1
+        
+        
+        results = [0]*int(size)
         
         for i in times:
-            if startTime <= i and i<= endTime:
-                index = int((i-startTime)/secs)
-                r[index] +=1
-        return r
-        
-        
-        
+            if startTime <= i <= endTime:
+                idx = int((i-startTime)/secs)
+                results[idx] +=1
+            
+        return results
+            
+
+
 # Your TweetCounts object will be instantiated and called as such:
 # obj = TweetCounts()
 # obj.recordTweet(tweetName,time)
