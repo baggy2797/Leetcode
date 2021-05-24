@@ -42,16 +42,17 @@ class Twitter:
 
     def getTweet(self,userId):
         tweets = []
+        
         if userId in self.users:
-            tweets+= self.users[userId]
+            tweets += self.users[userId] # fetch all the tweets by self
             
         if userId in self.followers:
-            followees = self.followers[userId]
-            for u_id in followees:
-                if u_id in self.users:
+            followees = self.followers[userId] # fetch all the followers
+            for u_id in followees:             # fetch all the tweets of all the followers
+                if u_id in self.users:         
                     tweets+=self.users[u_id]
-        tweets = sorted(tweets,key = lambda posts: posts[1],reverse = True)
-        return tweets[0:10]
+        tweets = sorted(tweets,key = lambda posts: posts[1],reverse = True) # sort by timestamp and get the top 10
+        return tweets[0:10] # return the top 10 tweets
     
             
     
@@ -59,8 +60,7 @@ class Twitter:
         """
         Retrieve the 10 most recent tweet ids in the user's news feed. Each item in the news feed must be posted by users who the user followed or by the user herself. Tweets must be ordered from most recent to least recent.
         """
-        recentTweets = self.getTweet(userId)
-        return [post[0] for post in recentTweets]
+        return [post[0] for post in self.getTweet(userId)]
         
 
         
