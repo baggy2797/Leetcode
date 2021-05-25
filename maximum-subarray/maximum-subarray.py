@@ -1,13 +1,9 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
-        #Kadane's Algorithm
-        current_max = global_max = nums[0]
+        globalMax = nums[0]
+        currMax  = nums[0]
         
         for i in range(1,len(nums)):
-            current_max = max(nums[i]+current_max,nums[i])
-            
-            if current_max > global_max:
-                global_max = current_max
-                
-        return(global_max)
-        
+            currMax = max(currMax+nums[i],nums[i])
+            globalMax = max(globalMax,currMax)
+        return globalMax
