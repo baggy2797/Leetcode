@@ -1,31 +1,27 @@
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        
+        if not intervals:return 0
         length = len(intervals)
-        if not intervals:
-            return 0
+        startTimings = [0 for _ in range(length)]
+        endTimings = [0 for _ in range(length)]
         
-        usedRooms = 0
+        for i in range(length):
+            startTimings[i] = (intervals[i][0])
+            endTimings[i] = (intervals[i][1])
         
-        startTimings = sorted([i[0] for i in intervals])
-        endTimings = sorted([i[1] for i in intervals])
+        startTimings.sort()
+        endTimings.sort()
         
-        end = 0
-        start = 0
         
-        while start < length:
-            if startTimings[start] >= endTimings[end]:
-                usedRooms-=1
-                end+=1
-            
-            usedRooms+=1
-            start+=1
-        
-        return usedRooms
-            
-            
-            
-        
-            
-                    
-            
-            
+        left = 0
+        right = 0
+        rooms = 0
+        while left < length:
+    
+            if startTimings[left] >= endTimings[right]:
+                rooms-=1
+                right+=1
+            rooms+=1
+            left+=1
+        return (rooms)
