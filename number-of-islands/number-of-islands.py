@@ -1,24 +1,23 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        
+        if not grid:return 0
+        rows,cols = len(grid),len(grid[0])
+        visited = [[0 for _ in range(cols)] for _ in range(rows)]
         count = 0
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
-                if grid[i][j] == "1" :
-                    count = count + 1
-                    self.findIslands(i,j,grid)
-        # print(grid)
+        def dfs(grid,x,y):
+            if x < 0 or x >= rows or y < 0 or y >= cols or grid[x][y]!="1" or visited[x][y] == 1:
+                return 
+            
+            visited[x][y] = 1
+            dfs(grid,x+1,y)
+            dfs(grid,x-1,y)
+            dfs(grid,x,y+1)
+            dfs(grid,x,y-1)
+            
+        for row in range(rows):
+            for col in range(cols):
+                if grid[row][col] == "1" and visited[row][col]==0:
+                    dfs(grid,row,col)
+                    count+=1
+        print(visited)
         return count
-        
-    def findIslands(self,x,y,grid):
-        if x<0 or y<0 or x==len(grid) or y ==len(grid[0]) or grid[x][y]!='1':
-        
-            return
-        else:
-            # self.visited[x][y] = True
-            grid[x][y] = '0'
-            self.findIslands(x+1,y,grid)
-            self.findIslands(x-1,y,grid)
-            self.findIslands(x,y+1,grid)
-            self.findIslands(x,y-1,grid) 
-        
