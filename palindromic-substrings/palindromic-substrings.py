@@ -1,36 +1,38 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        dp = [[0 for _ in range(len(s))] for _ in range(len(s))]
-        res = 0
+        '''
+            a a a
+        a   1 3 
+        a     2 
+        a       3
+        '''
         
-        #for characters of length 1: make it 1
-        for i in range(len(s)):
-            dp[i][i] = 1
-            res+=1
-            
-        # for cubstrings of length 2 : if both characters are equal : make it 1
-        for i in range(len(s)-1):
+        """
+            a b c
+        a   1 1 1
+        b     1 1
+        c       1
+        
+        
+        """
+        length = len(s)
+        dp = [[0 for _ in range(length)] for _ in range(length)]
+        count = 0
+        for i in range(length):
+            dp[i][i] =1
+            count+=1
+        
+        for i in range(length-1):
             if s[i] == s[i+1]:
                 dp[i][i+1] = 1
-                res+=1
+                count+=1
         
-        # print(dp)
-        
-        #for characters of length 3 and above: 
-        for length in range(3,len(s)+1):
-            for i in range(len(s)-length+1):
-                j = i + length-1
+        for l in range(3,length+1):
+            for i in range(length-l+1):
+                j = i+l-1
                 if dp[i+1][j-1] and s[i] == s[j]:
-                    dp[i][j] = 1
-                    res+=1
-        
-        return res
-        
-        # for length in range(3,len(s)+1):
-        #     for i in range(len(s)-length+1):
-        #         j = i+ length-1
-        #         if dp[i+1][j-1] and s[i]==s[j]:
-        #             dp[i][j]=1
-        #             res+=1
-        # return res
+                    dp[i][j] =1
+                    count+=1
+                    
+        return count
         
