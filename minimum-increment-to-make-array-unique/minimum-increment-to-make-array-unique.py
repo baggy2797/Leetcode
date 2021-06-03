@@ -1,13 +1,13 @@
 class Solution:
     def minIncrementForUnique(self, nums: List[int]) -> int:
+        length = len(nums)
         nums.sort()
         
-        nextNum = float('-inf')
         steps = 0
+        nextNum = 0
         
-        for num in nums:
-            steps += max(nextNum,num) - num
-            nextNum = max(num,nextNum)+1
-        return steps            
+        for i in range(length):
+            steps+= max(nextNum,nums[i]) - nums[i]
+            nextNum = max(nums[i],nextNum)+1
         
-        
+        return steps
