@@ -1,34 +1,34 @@
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        length = len(nums)
-        if length == 0: return [-1,-1]
+    #FIND THE ELEMEENT  from the lower side
+    #find the element form the upper side
+    #if both not found return [-1,-1]
+    #if found return the indices of the found the elements 
         
-        def searchLow(nums,target):
-            high,low = 0, length-1
-            while high<= low:
-                mid = (low+high)//2
+        if not nums:return [-1,-1]
+        self.length = len(nums)
+ 
+        def findLow(target):
+            low,high = 0,self.length-1
+            while low < high:
+                mid = (high + low) //2
                 
-                if nums[mid] >= target:
-                    low = mid - 1
-                else:
-                    high = mid + 1
-            return high
+                if target <= nums[mid]: high = mid
+                # elif nums[mid] <= target:left = mid
+                else:low = mid +1
+            return high if nums[high] == target else -1
         
-        def searchHigh(nums,target):
-            high,low = 0, length-1
-            while high<= low:
-                mid = (low+high)//2
+        def findHigh(target):
+            low,high = 0,self.length-1
+            
+            while low < high:
+                mid = (high + low) //2+1
                 
-                if nums[mid] > target:
-                    low = mid - 1
-                else:
-                    high = mid + 1
-            return low
+                if target >= nums[mid]: low = mid
+                else: high = mid-1
+            return low if nums[low] == target else -1
         
-        start = searchLow(nums,target)
-        end = searchHigh(nums,target)
+        return [findLow(target),findHigh(target)]
         
-        if 0<=start<length and start <= end and nums[start] == target:
-            return [start,end]
-        else:
-            return [-1,-1]
+        
+        
