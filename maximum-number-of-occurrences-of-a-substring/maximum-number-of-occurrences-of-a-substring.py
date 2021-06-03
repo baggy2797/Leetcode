@@ -5,7 +5,6 @@ class Solution:
         freq = {}
         
         for i in range(length-minSize+1):
-            # print(s[i:i+windowSize])
             temp = s[i:i+windowSize]
             if len(set(temp)) <= maxLetters:
                 freq[temp] =freq.get(temp,0)+1
