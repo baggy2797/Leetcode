@@ -3,28 +3,23 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        rows ,cols = len(matrix),len(matrix[0])
+        rows = set()
+        cols = set()
         
-        def makerowcolzero(row,col):
-            for i in range(rows):
-                if matrix[i][col]!=0:
-                    matrix[i][col] = "#"
-            for j in range(cols):
-                if matrix[row][j]!=0:
-                    matrix[row][j] = "#"
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if matrix[i][j] == 0:
+                    rows.add(i)
+                    cols.add(j)
+        #set rows
+        for element in rows:
+            for col in range(len(matrix[0])):
+                matrix[element][col] = 0
         
-        for row in range(rows):
-            for col in range(cols):
-                if matrix[row][col] == 0:
-                    makerowcolzero(row,col)
+        # set cols
+        for row in range(len(matrix)):
+            for element in cols:
+                matrix[row][element] = 0
+            
         
-        for row in range(rows):
-            for col in range(cols):
-                if matrix[row][col] == "#":
-                    matrix[row][col]=0
-        print(matrix)
-                
-                
-                
-                
-        
+                    
