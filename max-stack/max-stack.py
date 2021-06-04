@@ -6,13 +6,13 @@ class MaxStack:
         """
         self.stack = []
         
+        
 
     def push(self, x: int) -> None:
         self.stack.append(x)
 
     def pop(self) -> int:
-        if self.stack:return self.stack.pop()
-    
+        return self.stack.pop()
 
     def top(self) -> int:
         return self.stack[-1]
@@ -21,10 +21,14 @@ class MaxStack:
         return max(self.stack)
 
     def popMax(self) -> int:
-        Maximum = self.peekMax()
+        currentMax = self.peekMax()
+        idx =-1
         for i in range(len(self.stack)-1,-1,-1):
-            if self.stack[i] == Maximum:
-                return self.stack.pop(i)
+            if self.stack[i] == currentMax:
+                idx = i
+                break
+        return self.stack.pop(idx)
+        
 
 # Your MaxStack object will be instantiated and called as such:
 # obj = MaxStack()
