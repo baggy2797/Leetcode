@@ -1,18 +1,19 @@
 class Solution:
     def minSwaps(self, data: List[int]) -> int:
+        noOfOnes = sum(data)
+        windowSize = noOfOnes
         length = len(data)
-        windowSize = sum(data)
-        CountOnes = 0
+        right = 0
+        left = 0
+        currentOnes = 0
         swaps = 0
-        left,right = 0,0
         while right < length:
-            CountOnes+= data[right]
+            currentOnes += data[right]
             right+=1
             
             if right - left > windowSize:
-                CountOnes-= data[left]
+                currentOnes-=data[left]
                 left+=1
-            swaps = max(swaps,CountOnes)
-        
-        return windowSize - swaps
-        
+            swaps = max(currentOnes,swaps)
+        return windowSize - (swaps) 
+            
