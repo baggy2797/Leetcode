@@ -4,20 +4,21 @@ class TimeMap:
         """
         Initialize your data structure here.
         """
-        self.storeTime = defaultdict(list)
-        
+        self.Time = defaultdict(list)
+
     def set(self, key: str, value: str, timestamp: int) -> None:
-        self.storeTime[key].append((value,timestamp)) 
+        self.Time[key] += [(timestamp,value)]
 
     def get(self, key: str, timestamp: int) -> str:
-        temp = self.storeTime.get(key)
+        if key not in self.Time:
+            return ""
+        target = self.Time[key]
+        i = len(target)-1
         
-        length = len(temp)
-        
-        for i in range(length-1,-1,-1):
-            if temp[i][1] <= timestamp:
-                return temp[i][0]
-        return ""
+        while i>=0 and target[i][0] > timestamp:
+            i-=1
+        return target[i][1] if i>=0 else ""
+                
 
 # Your TimeMap object will be instantiated and called as such:
 # obj = TimeMap()
