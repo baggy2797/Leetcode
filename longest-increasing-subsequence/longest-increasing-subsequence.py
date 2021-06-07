@@ -1,16 +1,18 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        if nums is None:return 0
+        """
+        10 9 2 5 3 7 101 18
+         1 1 1 2 2 3 4   4
+         4
+        
+        
+        """
         length = len(nums)
-        dp = [0]* length
-        dp[0] = 1
-        maxAns = 1
+        dp = [1]* length
+        
         for i in range(length):
-            maxval = 0
             for j in range(i):
                 if nums[i] > nums[j]:
-                    maxval = max(maxval,dp[j])
-            
-            dp[i] = maxval+1
-            maxAns = max(maxAns,dp[i])
-        return maxAns
+                    dp[i] = max(dp[j]+1,dp[i])
+                    
+        return max(dp)
