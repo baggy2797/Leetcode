@@ -7,9 +7,11 @@ class Solution:
             else:
                 dicti[task] = dicti[task]+1
         
-        vals = list(dicti.values())
-        maxi = max(vals)
+        maxi = max(list(dicti.values()))
+        most = 0
+        for key in dicti.keys():
+            if dicti[key] == maxi:
+                most = most+1
         
-        num_most = len([i for i, v in dicti.items() if v == maxi])
-        time = (maxi - 1) * (n + 1) + num_most
+        time = (maxi - 1) * (n + 1) + most
         return max(time, len(tasks))
